@@ -17,16 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Формирование сообщения
-    $to = "andrei.i.korolev@gmail.com";
+    $to = "andrei.i.korolev@gmail.com"; // Замените на ваш email
     $subject = "Новое сообщение с сайта";
     $body = "Имя: $name\nEmail: $email\nСообщение:\n$message";
     $headers = "From: $email";
 
     // Отправка письма
     if (mail($to, $subject, $body, $headers)) {
-        echo "Сообщение отправлено.";
+        echo "<script>alert('Сообщение отправлено!'); window.location.href='index.html#contact';</script>";
     } else {
-        echo "Ошибка при отправке сообщения.";
+        echo "<script>alert('Ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.'); window.location.href='index.html#contact';</script>";
     }
 }
 ?>

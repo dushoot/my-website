@@ -3,45 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Иван Иванов - веб-разработчик и дизайнер, специализируюсь на создании современных веб-сайтов и интерфейсов.">
+    <meta name="description" content="Андрей Королёв - визитка">
     <title>Моя визитка</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+    .animation-container {
+        width: 100%;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+    .circle {
+        width: 50px;
+        height: 50px;
+        background-color: #00796b;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: move-around 10s infinite ease-in-out;
+    }
+    @keyframes move-around {
+        0% { transform: translate(-50%, -50%) scale(1); }
+        25% { transform: translate(50%, -50%) scale(1.2); }
+        50% { transform: translate(50%, 50%) scale(1); }
+        75% { transform: translate(-50%, 50%) scale(1.2); }
+        100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .background-circle {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 121, 107, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        z-index: -1;
+        transition: transform 0.5s ease-out;
+    }
+</style>
 </head>
 <body>
     <header>
-        <h1>Привет, я Иван Иванов</h1>
-        <p>Веб-разработчик и дизайнер</p>
-        <nav>
+        <h1>Привет, я Андрей Королёв</h1>
+        <button id="menuToggle" aria-label="Меню">&#9776;</button>
+        <nav id="menu" class="hidden">
             <ul class="nav-menu">
                 <li><a href="#about">Обо мне</a></li>
+                <li><a href="#timeline">Главное в хронологии моей жизни</a></li>
+                <li><a href="#fun-facts">10 рандомных фактов обо мне</a></li>
                 <li><a href="#skills">Мои навыки</a></li>
                 <li><a href="#portfolio">Портфолио</a></li>
-                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#social-media">Мои соцсети</a></li>
+                <li><a href="#send-letter">Отправить мне письмо</a></li>
+                <li><a href="#location">Где я нахожусь</a></li>
             </ul>
         </nav>
     </header>
     
     <section id="about" class="fade-in">
         <h2>Обо мне</h2>
-        <p>Я специализируюсь на создании современных веб-сайтов. Люблю решать сложные задачи и придумывать красивые решения.</p>
+        <p>Привет! Я Андрей Королёв. Продакт в Тинькофф Мобайл и владелец онлайн-школы личной эффективности #ЩАС. Веду блоги в Телеграме и на YouTube.</p>
+        <p>С 2017 по 2024 год я наколбасил порядка 30 проектов — какие-то успешные, такие как Школа #ЩАС и ИИ-репетитор, а какие-то подохли быстро, но дали мне огромный предпринимательский опыт и антихрупкость. В 2024 году я решил попробовать себя в корпоративной среде, устроившись на работу в Тинькофф Мобайл.</p>
+    </section>
+
+    <section id="timeline" class="fade-in">
+        <h2>Главное в хронологии моей жизни</h2>
+        <ul>
+            <li>В 17 стал победителем Всероссийской олимпиады школьников по химии.</li>
+            <li>В 18 получил золото на Международной олимпиаде школьников по химии.</li>
+            <li>В 19 научился скорочтению и начал вести блог с рецензиями на книги (больше 300 книг).</li>
+            <li>В 20 руководил отделом дизайна в АПО и стажировался в Braginsky Bureau.</li>
+            <li>В 21 оформил свою деятельность в МГУ под брендом "Центр Развития Университета".</li>
+            <li>В 22 пробежал 100 км, подтянулся 500 раз и отжался 1000 раз за 24 часа.</li>
+            <li>В 23 продал долю в ИИ-стартапе Slai, ставшем частью французской компании.</li>
+            <li>В 24 выпустился из университета с красным дипломом и начал заниматься своей школой #ЩАС.</li>
+            <li>В 25 привлек инвестиции и расширил аудиторию школы до 45,000 слушателей.</li>
+            <li>В 26 устроился на роль продакта в Тинькофф Мобайл.</li>
+        </ul>
+    </section>
+
+    <section id="fun-facts" class="fade-in">
+        <h2>10 рандомных фактов обо мне</h2>
+        <ul>
+            <li>У меня в детстве было ожирение 2 степени (почти 3).</li>
+            <li>Худел за 3 месяца на 20 кг ради девочки, в которую был влюблён.</li>
+            <li>В студенческие годы был единственным студентом химфака, которого приглашали на деканат для помощи с проектами.</li>
+            <li>Люблю играть в Civ5 и Доту.</li>
+            <li>Лейтенант войск радиационной, химической и биологической защиты РФ.</li>
+            <li>Пробовал спать полифазно. Не получилось.</li>
+            <li>Экспериментировал с вегетарианством, кетодиетой, палеодиетой и другими диетами.</li>
+            <li>Работал барменом, чтобы понять индустрию изнутри.</li>
+            <li>По архетипу я шут — люблю шутить, веселить и выступать.</li>
+            <li>Люблю плов, том ям, роллы и почти всё, что связано с рисом.</li>
+        </ul>
     </section>
 
     <section id="skills" aria-labelledby="skills-title" class="fade-in">
         <h2 id="skills-title">Мои навыки</h2>
-        <ul class="skills-list">
-            <li>HTML & CSS</li>
-            <li>JavaScript</li>
-            <li>Дизайн пользовательского интерфейса</li>
-            <li>React</li>
-            <li>Git и управление версиями</li>
+        <ul class="skills-list" style="padding: 20px;">
+            <li style="margin-bottom: 20px; padding: 15px; border: 1px solid #00796b; border-radius: 8px;">
+                <span style="display: block; margin-bottom: 10px;">Дизайн пользовательского интерфейса - 90%</span>
+                <div class="progress-bar" style="background-color: #e0e0e0; border-radius: 25px; overflow: hidden; height: 20px;">
+                    <div class="progress" style="width: 90%; height: 100%; background-color: #00796b; border-radius: 25px 0 0 25px;"></div>
+                </div>
+            </li>
+            <li style="margin-bottom: 20px; padding: 15px; border: 1px solid #00796b; border-radius: 8px;">
+                <span style="display: block; margin-bottom: 10px;">HTML & CSS - 80%</span>
+                <div class="progress-bar" style="background-color: #e0e0e0; border-radius: 25px; overflow: hidden; height: 20px;">
+                    <div class="progress" style="width: 80%; height: 100%; background-color: #00796b; border-radius: 25px 0 0 25px;"></div>
+                </div>
+            </li>
+            <li style="margin-bottom: 20px; padding: 15px; border: 1px solid #00796b; border-radius: 8px;">
+                <span style="display: block; margin-bottom: 10px;">Git и управление версиями - 70%</span>
+                <div class="progress-bar" style="background-color: #e0e0e0; border-radius: 25px; overflow: hidden; height: 20px;">
+                    <div class="progress" style="width: 70%; height: 100%; background-color: #00796b; border-radius: 25px 0 0 25px;"></div>
+                </div>
+            </li>
+            <li style="margin-bottom: 20px; padding: 15px; border: 1px solid #00796b; border-radius: 8px;">
+                <span style="display: block; margin-bottom: 10px;">React - 60%</span>
+                <div class="progress-bar" style="background-color: #e0e0e0; border-radius: 25px; overflow: hidden; height: 20px;">
+                    <div class="progress" style="width: 60%; height: 100%; background-color: #00796b; border-radius: 25px 0 0 25px;"></div>
+                </div>
+            </li>
+            <li style="margin-bottom: 20px; padding: 15px; border: 1px solid #00796b; border-radius: 8px;">
+                <span style="display: block; margin-bottom: 10px;">JavaScript - 50%</span>
+                <div class="progress-bar" style="background-color: #e0e0e0; border-radius: 25px; overflow: hidden; height: 20px;">
+                    <div class="progress" style="width: 50%; height: 100%; background-color: #00796b; border-radius: 25px 0 0 25px;"></div>
+                </div>
+            </li>
         </ul>
     </section>
 
     <section id="portfolio" class="fade-in">
-        <h2 style="text-align: center; width: 100%;">Портфолио</h2>
+        <h2>Портфолио</h2>
         <div class="portfolio-items">
             <div class="portfolio-item">
                 <img src="images/project1.jpeg" alt="Проект 1">
@@ -58,8 +159,18 @@
         </div>
     </section>
 
-    <section id="contact" class="fade-in">
-        <h2>Контакты</h2>
+    <section id="social-media" class="fade-in">
+        <h2>Мои соцсети</h2>
+        <ul>
+            <li><a href="https://www.instagram.com/andrei.i.korolev/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.youtube.com/channel/UCW3e8uIW8D44vP-clDvMc0Q" target="_blank">YouTube</a></li>
+            <li><a href="https://t.me/korolev_AK" target="_blank">Telegram</a></li>
+            <li><a href="https://www.linkedin.com/in/andreiikorolev/" target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+
+    <section id="send-letter" class="fade-in">
+        <h2>Отправить мне письмо</h2>
         <form action="send-message.php" method="post">
             <label for="name">Имя:</label>
             <input type="text" id="name" name="name" required>
@@ -73,27 +184,26 @@
             <input type="submit" value="Отправить" class="submit-btn">
         </form>
     </section>
+    
+    
 
-    <section id="map" class="fade-in">
+
+
+    <section id="location" class="fade-in">
         <h2>Где я нахожусь</h2>
-        <div id="map-container">
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Af3d0d4e58b8c4b2a82c9d3f2a7f00d94f788a491938d7a8ff6e5db55324a6c11&amp;source=constructor" width="100%" height="450" frameborder="0"></iframe>
+        <div id="map">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&source=constructor" width="100%" height="400" frameborder="0"></iframe>
         </div>
     </section>
 
-    <footer>
+    <div style="margin-bottom: 50px;"></div>
+<footer>
         <div class="footer-content">
-            <p>Все права защищены &copy; 2024 Иван Иванов</p>
-            <div class="social-icons">
-                <a href="https://linkedin.com/in/ivanivanov" target="_blank" aria-label="LinkedIn">
-                    <img src="images/linkedin-icon.png" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/ivanivanov" target="_blank" aria-label="GitHub">
-                    <img src="images/github-icon.png" alt="GitHub">
-                </a>
-            </div>
+            <p>Все права защищены &copy; 2024 Андрей Королёв</p>
         </div>
-    </footer>
+</footer>
+
+    
 
     <button id="scrollTopBtn">Наверх</button>
 
@@ -101,14 +211,25 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM content fully loaded');
 
+            const faders = document.querySelectorAll('.fade-in');
+            const showFader = fader => {
+                if (fader.getBoundingClientRect().top < window.innerHeight) {
+                    fader.classList.add('visible');
+                }
+            };
+
+            window.addEventListener('scroll', () => {
+                faders.forEach(showFader);
+            });
+            faders.forEach(showFader); // Проверяем сразу при загрузке
+
             // Прокрутка наверх
             const scrollTopBtn = document.getElementById('scrollTopBtn');
             scrollTopBtn.addEventListener('click', () => {
                 console.log('Scroll to top button clicked');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'sфmooth' });
             });
 
-            // Показ кнопки "Наверх" при прокрутке вниз
             window.addEventListener('scroll', () => {
                 console.log('Window scrolled, scrollTop:', document.documentElement.scrollTop);
                 if (document.documentElement.scrollTop > 200) {
@@ -134,18 +255,34 @@
                 console.log('Menu toggle button not found');
             }
 
-            // Анимация появления секций при прокрутке
-            const faders = document.querySelectorAll('.fade-in');
-            const showFader = fader => {
-                if (fader.getBoundingClientRect().top < window.innerHeight) {
-                    console.log('Fader in view:', fader);
-                    fader.classList.add('visible');
+            // Валидация формы перед отправкой
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e) => {
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!name || !email || !message) {
+                    e.preventDefault();
+                    alert('Все поля обязательны для заполнения.');
+                } else if (!/\S+@\S+\.\S+/.test(email)) {
+                    e.preventDefault();
+                    alert('Некорректный формат email.');
                 }
-            };
-            window.addEventListener('scroll', () => {
-                faders.forEach(showFader);
             });
-            faders.forEach(showFader); // Проверяем сразу при загрузке
+        });
+    </script>
+    <div class="background-circle"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backgroundCircle = document.querySelector('.background-circle');
+            
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const scale = 1 + scrollTop / 1000;
+                backgroundCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            });
         });
     </script>
 </body>
