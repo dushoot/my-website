@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Описание проекта 2 - Иван Иванов">
+    <title>Проект 2 - Иван Иванов</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Проект 2</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="#description">Описание</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="description" class="fade-in">
+        <h2>Описание проекта 2</h2>
+        <p>Этот проект демонстрирует использование различных фреймворков и библиотек для разработки современного веб-приложения. В проекте акцент сделан на пользовательский интерфейс и удобство взаимодействия с пользователем.</p>
+    </section>
+
+    <section id="technologies" class="fade-in">
+        <h2>Используемые технологии</h2>
+        <ul class="skills-list">
+            <li>React</li>
+            <li>CSS-in-JS</li>
+            <li>JavaScript (ES6+)</li>
+            <li>API интеграция</li>
+        </ul>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>Все права защищены &copy; 2024 Иван Иванов</p>
+            <div class="social-icons">
+                <a href="https://linkedin.com/in/ivanivanov" target="_blank" aria-label="LinkedIn">
+                    <img src="images/linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/ivanivanov" target="_blank" aria-label="GitHub">
+                    <img src="images/github-icon.png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn">Наверх</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Project 2 page loaded');
+
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            window.addEventListener('scroll', () => {
+                if (document.documentElement.scrollTop > 200) {
+                    scrollTopBtn.style.display = "block";
+                    scrollTopBtn.style.opacity = 1;
+                } else {
+                    scrollTopBtn.style.opacity = 0;
+                    setTimeout(() => {
+                        scrollTopBtn.style.display = "none";
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
