@@ -1,12 +1,22 @@
-body {
+/* Универсальные стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
+    width: 100%;
     font-family: 'Jost', sans-serif;
     line-height: 1.6;
     background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
     color: #333;
 }
 
+/* Шапка сайта */
 header {
     background-color: #333;
     color: #fff;
@@ -79,6 +89,7 @@ nav ul li a:hover {
     }
 }
 
+/* Секции сайта */
 section {
     padding: 2rem;
     max-width: 800px;
@@ -86,6 +97,7 @@ section {
     background-color: #fff;
     margin-top: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .fade-in {
@@ -99,6 +111,7 @@ section {
     transform: translateY(0);
 }
 
+/* Навыки */
 .skills-list {
     list-style: none;
     padding: 0;
@@ -143,6 +156,7 @@ section {
     width: 70%;
 }
 
+/* Портфолио */
 .portfolio-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -155,6 +169,7 @@ section {
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    border-radius: 10px;
 }
 
 .portfolio-item img {
@@ -176,6 +191,7 @@ section {
     color: #005f56;
 }
 
+/* Форма обратной связи */
 form {
     display: flex;
     flex-direction: column;
@@ -211,6 +227,7 @@ textarea {
     background-color: #005f56;
 }
 
+/* Подвал */
 .footer-content {
     background-color: #333;
     color: #fff;
@@ -230,6 +247,7 @@ textarea {
     margin: 0 0.5rem;
 }
 
+/* Кнопка прокрутки вверх */
 #scrollTopBtn {
     display: none;
     position: fixed;
@@ -283,4 +301,177 @@ textarea {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+/* Описание обо мне */
+.about-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 auto; /* Центрирование */
+    max-width: 800px; /* Установить нужную ширину */
+}
+
+.about-photo {
+    flex: 1;
+    text-align: center;
+}
+
+.about-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-text {
+    flex: 2;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+}
+
+/* Логотипы компаний */
+
+.logos-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.logo-slide {
+    display: flex;
+    gap: 40px;
+    animation: scroll-logos 30s linear infinite;
+    width: auto; /* Убираем min-width */
+}
+
+.logo-slide img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+@keyframes scroll-logos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: left;
+    color: #333; /* Убедитесь, что цвет текста одинаковый */
+}
+
+#snakeGame {
+    border: 1px solid #000;
+    display: block;
+    margin: 20px auto;
+}
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px); /* Размытие фона */
+}
+
+/* Обертка для выравнивания изображения и белого бокса */
+.modal-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Белый бокс, содержащий изображение и кнопку закрытия */
+.modal-box {
+    background-color: #fff; /* Белый фон */
+    padding: 20px; /* Отступы внутри белого бокса */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Тень */
+    max-width: 90%; /* Максимальная ширина белого бокса */
+    max-height: 90%; /* Максимальная высота белого бокса */
+    position: relative;
+    display: flex; /* Новое: Используем Flexbox для удобного выравнивания */
+    flex-direction: column; /* Новое: Выравниваем элементы по вертикали */
+    align-items: center; /* Центрируем содержимое по горизонтали */
+    justify-content: center; /* Центрируем содержимое по вертикали */
+}
+
+/* Содержимое модального окна (изображение) */
+.modal-content {
+    width: auto; /* Изменено: Теперь ширина авто, а не 80% */
+    height: 100%; /* Новое: Высота изображения заполняет родительский элемент */
+    max-width: 100%; /* Изменено: Установили ограничения для ширины */
+    max-height: calc(90vh - 60px); /* Новое: Ограничили высоту изображения, учитывая отступы и кнопку закрытия */
+    border-radius: 5px; /* Изменено: Добавили скругленные углы к изображению */
+    object-fit: contain; /* Новое: Сохраняем пропорции и не выходим за пределы белого бокса */
+}
+
+/* Кнопка закрытия */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.close::before {
+    content: "×";
+    color: #fff;
+    font-size: 30px;
+}
+
+/* Анимация увеличения при открытии */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Применяем анимацию к белому боксу */
+.modal-box {
+    animation: zoomIn 0.2s ease-out;
 }
